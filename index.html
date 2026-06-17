@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Global Styles */
     html { scroll-behavior: smooth; }
     * { box-sizing: border-box; }
     
@@ -20,19 +21,28 @@
       transition: background 0.3s, color 0.3s;
       overflow-x: hidden;
     }
-    body.dark-mode { background: #121212; color: #eee; }
     
+    /* Global Dark Mode Themes via Cascade */
+    body.dark-mode { background: #121212; color: #eee; }
+    body.dark-mode section { background: #1e1e1e; color: #eee; }
+    body.dark-mode h2 { color: #60a5fa; }
+    body.dark-mode .skill { background: #2a2a2a; color: #eee; border-color: #333; }
+    body.dark-mode .design-item { background: #2a2a2a; border-color: #444; }
+    body.dark-mode .settings-dropdown { background: #1e1e1e; color: #eee; border: 1px solid #333; }
+    body.dark-mode .settings-dropdown .dropdown-item:hover { background: #333; }
+    
+    /* Header Section */
     header {
       background: linear-gradient(135deg, #0f172a, #2563eb, #3b82f6);
       color: white;
       padding: 80px 20px;
       text-align: center;
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.3s;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    header.dark-mode { background: linear-gradient(135deg, #000, #1e293b); }
+    body.dark-mode header { background: linear-gradient(135deg, #000, #1e293b); }
 
-    /* Profile Image with Pulse Effect */
+    /* Profile Image & Animations */
     .profile-img {
       width: 150px;
       height: 150px;
@@ -42,7 +52,7 @@
       object-fit: cover;
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
-      animation: pulse 2s infinite; /* Pulse animation */
+      animation: pulse 2s infinite;
     }
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
@@ -65,7 +75,7 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* Scroll Reveal Styling */
+    /* Scroll Reveal Animation Classes */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -76,6 +86,7 @@
       transform: translateY(0);
     }
 
+    /* Content Layout Structure */
     section {
       max-width: 1000px;
       margin: 45px auto;
@@ -84,13 +95,11 @@
       border-radius: 24px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.05);
       color: #333;
-      transition: all 0.3s ease;
+      transition: background 0.3s;
     }
-    section.dark-mode { background: #1e1e1e; color: #eee; }
-
     h2 { color: #2563eb; margin-bottom: 25px; font-size: 28px; font-weight: 700; text-align: center;}
-    h2.dark-mode { color: #60a5fa; }
 
+    /* Skills Grid */
     .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
     .skill {
       background: #ffffff;
@@ -102,9 +111,9 @@
       text-align: center;
     }
     .skill:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #2563eb; }
-    .skill.dark-mode { background: #2a2a2a; color: #eee; border-color: #333; }
     .skill i { font-size: 40px; margin-bottom: 15px; color: #2563eb; }
 
+    /* Work/Design Portfolio Grid */
     .design-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -115,17 +124,16 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s;
       background: #fff;
       border: 1px solid #ddd;
     }
-    .design-item.dark-mode { background: #2a2a2a; border-color: #444; }
     .design-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
     .design-info { padding: 15px; text-align: center; font-weight: 600; }
 
     footer { background: #0b0f19; color: #aaa; text-align: center; padding: 30px; margin-top: 60px; }
 
-    /* Top Controls & Settings Dropdown */
+    /* Header Nav & Settings UI Control */
     .top-controls {
       position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; align-items: center;
     }
@@ -139,9 +147,9 @@
       position: absolute; top: 50px; right: 0; background: white; 
       min-width: 160px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       display: none; padding: 10px; flex-direction: column; gap: 5px;
+      transition: opacity 0.3s ease;
     }
     .settings-dropdown.active { display: flex; }
-    .settings-dropdown.dark-mode { background: #1e1e1e; color: #eee; border: 1px solid #333; }
 
     .dropdown-item {
       padding: 10px; border-radius: 10px; cursor: pointer;
@@ -149,16 +157,15 @@
       transition: 0.2s; font-size: 14px; color: inherit;
     }
     .dropdown-item:hover { background: #f0f0f0; }
-    .settings-dropdown.dark-mode .dropdown-item:hover { background: #333; }
 
-    /* Google Translate Hide Branding */
+    /* Google Translate Branding Cleanup */
     .goog-te-gadget span { display: none !important; }
     .goog-te-gadget { color: transparent !important; }
     #google_translate_element select {
       padding: 8px; border-radius: 20px; border: 1px solid #2563eb; outline: none; font-family: 'Poppins'; cursor: pointer;
     }
 
-    /* Floating Buttons */
+    /* Floating Social Action Buttons Menu */
     .float-buttons { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column-reverse; gap: 15px; z-index: 999; }
     .float-buttons a {
       background: #0d6efd; color: white; width: 60px; height: 60px; border-radius: 50%;
@@ -179,6 +186,8 @@
     }
     .float-buttons a:hover::after { opacity: 1; transform: translateX(0); }
     .float-buttons a:hover { transform: scale(1.15); }
+    
+    /* Animation styling states for Floating Menu items toggled via JS */
     .float-buttons.collapsed a:not(.main-btn) { opacity: 0; transform: translateY(20px) scale(0); pointer-events: none; }
     .float-buttons a:not(.main-btn).active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
   </style>
@@ -265,7 +274,7 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-  // Typing Effect
+  // Typing Matrix Header Script Logic
   const typingText = "Graphic Designer | Digital Creator | Developer";
   let i = 0;
   function typeWriter() {
@@ -275,9 +284,14 @@ function googleTranslateElementInit() {
       setTimeout(typeWriter, 80);
     }
   }
-  window.onload = typeWriter;
 
-  // Scroll Reveal Logic
+  // Unified window onload to prevent initialization overrides
+  window.addEventListener('load', () => {
+    typeWriter();
+    reveal(); // Execute initial visibility scanning check 
+  });
+
+  // Structural Window Scroll Position Reveal Check Animation Metrics
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -290,34 +304,37 @@ function googleTranslateElementInit() {
     }
   }
   window.addEventListener("scroll", reveal);
-  reveal(); // Initial check
 
-  // Settings Dropdown
+  // Settings Panel Menu Interface Toggle Trigger Execution
   function toggleSettings() {
     document.getElementById("settingsMenu").classList.toggle("active");
   }
 
-  // Dark Mode Logic
+  // Refactored Clean Dark Mode Persistence Operations Engine Logic
   function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
-    document.querySelectorAll('section, .skill, h2, header, .design-item, .settings-dropdown').forEach(el => el.classList.toggle('dark-mode'));
-    if(body.classList.contains('dark-mode')) localStorage.setItem('darkMode','enabled');
-    else localStorage.setItem('darkMode','disabled');
+    
+    if(body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
   }
 
+  // Read state setup cache checking initialization
   if(localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
-    document.querySelectorAll('section, .skill, h2, header, .design-item, .settings-dropdown').forEach(el => el.classList.add('dark-mode'));
   }
 
+  // Global Outside Context Window Modal Dropdown Target Click Hider Handler
   window.addEventListener('click', function(e){
     if (!document.querySelector('.settings-wrapper').contains(e.target)){
       document.getElementById("settingsMenu").classList.remove("active");
     }
   });
 
-  // Floating Action Button
+  // Floating Multi-Action Application Navigation Toggle Click Controller Logic
   const floatBox = document.querySelector('.float-buttons');
   const mainBtn = document.querySelector('.main-btn');
   const floatLinks = floatBox.querySelectorAll('a:not(.main-btn)');
@@ -326,8 +343,11 @@ function googleTranslateElementInit() {
     floatBox.classList.toggle('collapsed');
     mainBtn.querySelector('i').classList.toggle('fa-plus');
     mainBtn.querySelector('i').classList.toggle('fa-xmark');
+    
     floatLinks.forEach((link, index) => {
-      setTimeout(() => { link.classList.toggle('active'); }, index * 60);
+      setTimeout(() => { 
+        link.classList.toggle('active'); 
+      }, index * 60);
     });
   });
 </script>
