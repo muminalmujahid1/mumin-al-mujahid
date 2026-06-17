@@ -3,353 +3,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mumin Al Mujahid | Digital Creator & Developer</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Mumin Al Mujahid | Graphic Designer & Web Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Professional Graphic Designer, Video Editor and Web Developer from Bangladesh. Helping brands grow digitally.">
+  <meta name="keywords" content="Graphic Designer, Web Developer, Video Editor, Bangladesh, Freelancer">
+  <meta name="author" content="Mumin Al Mujahid">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Global Styles */
-    html { scroll-behavior: smooth; }
-    * { box-sizing: border-box; }
-    
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #f3f5f9;
-      color: #333;
-      transition: background 0.3s, color 0.3s;
-      overflow-x: hidden;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f3f5f9;
+      color:#333;
+      transition:.3s;
     }
-    
-    /* Global Dark Mode Themes via Cascade */
-    body.dark-mode { background: #121212; color: #eee; }
-    body.dark-mode section { background: #1e1e1e; color: #eee; }
-    body.dark-mode h2 { color: #60a5fa; }
-    body.dark-mode .skill { background: #2a2a2a; color: #eee; border-color: #333; }
-    body.dark-mode .design-item { background: #2a2a2a; border-color: #444; }
-    body.dark-mode .settings-dropdown { background: #1e1e1e; color: #eee; border: 1px solid #333; }
-    body.dark-mode .settings-dropdown .dropdown-item:hover { background: #333; }
-    
-    /* Header Section */
-    header {
-      background: linear-gradient(135deg, #0f172a, #2563eb, #3b82f6);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-      transition: background 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    body.dark-mode header { background: linear-gradient(135deg, #000, #1e293b); }
+    body.dark{background:#121212;color:#eee}
 
-    /* Profile Image & Animations */
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 20px;
-      object-fit: cover;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-      animation: pulse 2s infinite;
+    section{
+      max-width:1100px;
+      margin:60px auto;
+      background:#fff;
+      padding:50px;
+      border-radius:22px;
+      box-shadow:0 10px 35px rgba(0,0,0,.08);
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-      70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    body.dark section{background:#1e1e1e}
+
+    h2{text-align:center;color:#2563eb;margin-bottom:30px}
+
+    /* HEADER */
+    header{
+      background:linear-gradient(135deg,#0f172a,#2563eb);
+      color:#fff;
+      text-align:center;
+      padding:90px 20px;
     }
-    .profile-img:hover { transform: scale(1.05); border-color: #fff; }
-
-    #typing-text::after { content: '|'; animation: blink 0.7s infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    .badges span { 
-      display: inline-block; 
-      background: rgba(255,255,255,0.1); 
-      backdrop-filter: blur(10px);
-      padding: 8px 18px; 
-      border-radius: 30px; 
-      margin: 10px 6px 0; 
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.2);
+    .profile{
+      width:150px;height:150px;
+      border-radius:50%;
+      border:5px solid rgba(255,255,255,.3);
+      margin-bottom:20px;
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}
+      70%{box-shadow:0 0 0 20px rgba(255,255,255,0)}
+      100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
     }
 
-    /* Scroll Reveal Animation Classes */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
+    #typing::after{content:"|";animation:blink .7s infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    .badges span{
+      display:inline-block;
+      background:rgba(255,255,255,.15);
+      padding:8px 18px;
+      border-radius:30px;
+      margin:8px 5px;
+      font-size:13px;
     }
 
-    /* Content Layout Structure */
-    section {
-      max-width: 1000px;
-      margin: 45px auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 24px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-      color: #333;
-      transition: background 0.3s;
+    /* SKILLS */
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
     }
-    h2 { color: #2563eb; margin-bottom: 25px; font-size: 28px; font-weight: 700; text-align: center;}
+    .skill{
+      text-align:center;
+      padding:30px;
+      border-radius:18px;
+      border:1px solid #eee;
+      transition:.3s;
+    }
+    .skill:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,.1)}
+    .skill i{font-size:40px;color:#2563eb;margin-bottom:15px}
 
-    /* Skills Grid */
-    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-    .skill {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      transition: all 0.4s ease;
-      color: #333;
-      border: 1px solid #f0f0f0;
-      text-align: center;
+    /* PORTFOLIO */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
     }
-    .skill:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #2563eb; }
-    .skill i { font-size: 40px; margin-bottom: 15px; color: #2563eb; }
+    .item{
+      border-radius:15px;
+      overflow:hidden;
+      border:1px solid #ddd;
+    }
+    .item img{width:100%;height:200px;object-fit:cover}
+    .info{text-align:center;padding:15px;font-weight:600}
 
-    /* Work/Design Portfolio Grid */
-    .design-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+    /* CONTACT */
+    form{
+      max-width:600px;
+      margin:auto;
+      display:grid;
+      gap:15px;
     }
-    .design-item {
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, background 0.3s;
-      background: #fff;
-      border: 1px solid #ddd;
+    input,textarea{
+      padding:14px;
+      border-radius:12px;
+      border:1px solid #ccc;
+      font-family:'Poppins';
     }
-    .design-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .design-info { padding: 15px; text-align: center; font-weight: 600; }
-
-    footer { background: #0b0f19; color: #aaa; text-align: center; padding: 30px; margin-top: 60px; }
-
-    /* Header Nav & Settings UI Control */
-    .top-controls {
-      position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; align-items: center;
-    }
-    .top-btn { 
-      background: #2563eb; color: #fff; padding: 10px 20px; border-radius: 30px; 
-      cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
-      border: none; display: flex; align-items: center; gap: 8px;
-    }
-    .settings-wrapper { position: relative; }
-    .settings-dropdown {
-      position: absolute; top: 50px; right: 0; background: white; 
-      min-width: 160px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      display: none; padding: 10px; flex-direction: column; gap: 5px;
-      transition: opacity 0.3s ease;
-    }
-    .settings-dropdown.active { display: flex; }
-
-    .dropdown-item {
-      padding: 10px; border-radius: 10px; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: 0.2s; font-size: 14px; color: inherit;
-    }
-    .dropdown-item:hover { background: #f0f0f0; }
-
-    /* Google Translate Branding Cleanup */
-    .goog-te-gadget span { display: none !important; }
-    .goog-te-gadget { color: transparent !important; }
-    #google_translate_element select {
-      padding: 8px; border-radius: 20px; border: 1px solid #2563eb; outline: none; font-family: 'Poppins'; cursor: pointer;
+    button{
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      padding:14px;
+      border-radius:30px;
+      font-weight:600;
+      cursor:pointer;
     }
 
-    /* Floating Social Action Buttons Menu */
-    .float-buttons { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column-reverse; gap: 15px; z-index: 999; }
-    .float-buttons a {
-      background: #0d6efd; color: white; width: 60px; height: 60px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 26px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2); text-decoration: none; position: relative;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#0b0f19;
+      color:#aaa;
     }
-    .float-buttons a.whatsapp { background: #25D366; }
-    .float-buttons a.facebook { background: #1877F2; }
-    .float-buttons a.youtube { background: #FF0000; }
-    .float-buttons a.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-    .float-buttons a.tiktok { background: #000000; }
 
-    .float-buttons a::after {
-      content: attr(data-title); position: absolute; right: 75px; background: rgba(0,0,0,0.8);
-      color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 13px;
-      opacity: 0; pointer-events: none; white-space: nowrap; transform: translateX(10px); transition: 0.3s;
+    /* FLOAT BUTTONS */
+    .float{
+      position:fixed;
+      bottom:25px;
+      right:25px;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
     }
-    .float-buttons a:hover::after { opacity: 1; transform: translateX(0); }
-    .float-buttons a:hover { transform: scale(1.15); }
-    
-    /* Animation styling states for Floating Menu items toggled via JS */
-    .float-buttons.collapsed a:not(.main-btn) { opacity: 0; transform: translateY(20px) scale(0); pointer-events: none; }
-    .float-buttons a:not(.main-btn).active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .float a{
+      width:60px;height:60px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:26px;
+      text-decoration:none;
+    }
+    .whatsapp{background:#25D366}
+    .facebook{background:#1877F2}
+    .youtube{background:#FF0000}
   </style>
 </head>
+
 <body>
 
-<div class="top-controls">
-  <div id="google_translate_element"></div>
-  
-  <div class="settings-wrapper">
-    <button class="top-btn" onclick="toggleSettings()">
-      <i class="fa-solid fa-gear"></i> Settings
-    </button>
-    <div class="settings-dropdown" id="settingsMenu">
-      <div class="dropdown-item" onclick="toggleDarkMode()">
-        Dark Mode <i class="fa-solid fa-moon"></i>
-      </div>
-    </div>
-  </div>
-</div>
-
-<header id="top">
-  <img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" alt="Mumin Al Mujahid" class="profile-img">
+<header>
+  <img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" class="profile">
   <h1>Mumin Al Mujahid</h1>
-  <p id="typing-text"></p>
+  <p id="typing"></p>
   <div class="badges">
-    <span>YouTube</span>
+    <span>Graphic Design</span>
     <span>Video Editing</span>
-    <span>Web & App Development</span>
+    <span>Web Development</span>
     <span>Digital Marketing</span>
   </div>
 </header>
 
-<section class="about reveal">
+<section>
   <h2>About Me</h2>
-  <p>I am <strong>Mumin Al Mujahid</strong> — a Bangladeshi <strong>YouTuber</strong> and <strong>Multi‑Skill Digital Professional</strong>. I work with Graphic Design, Professional Video Editing, and Web Development.</p>
+  <p style="text-align:center">
+    I’m <strong>Mumin Al Mujahid</strong>, a creative digital professional from Bangladesh.
+    I help individuals and businesses build their online presence through
+    <strong>branding, video content, and modern web solutions</strong>.
+  </p>
 </section>
 
-<section class="skills-sec reveal">
-  <h2>My Specialities</h2>
+<section>
+  <h2>My Skills</h2>
   <div class="skills">
-    <div class="skill"><i class="fa-solid fa-pen-nib"></i><h3>Graphic Design</h3><p>Logo, thumbnail & poster</p></div>
-    <div class="skill"><i class="fa-solid fa-scissors"></i><h3>Video Editing</h3><p>Cinematic & social media edits</p></div>
-    <div class="skill"><i class="fa-solid fa-globe"></i><h3>Web Development</h3><p>Responsive & modern websites</p></div>
+    <div class="skill">
+      <i class="fa-solid fa-pen-nib"></i>
+      <h3>Graphic Design</h3>
+      <p>Photoshop, Thumbnails, Branding</p>
+    </div>
+    <div class="skill">
+      <i class="fa-solid fa-scissors"></i>
+      <h3>Video Editing</h3>
+      <p>YouTube & Social Media</p>
+    </div>
+    <div class="skill">
+      <i class="fa-solid fa-globe"></i>
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JavaScript</p>
+    </div>
   </div>
 </section>
 
-<section class="portfolio reveal">
-  <h2>My Works</h2>
-  <div class="design-grid">
-    <div class="design-item"><img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-(10).png" alt="Thumbnail"><div class="design-info">YouTube Thumbnail</div></div>
-    <div class="design-item"><img src="https://i.postimg.cc/mg734yH7/Untitled-design-(3).png" alt="Logo"><div class="design-info">Professional Logo</div></div>
-    <div class="design-item"><img src="https://img.sanishtech.com/u/19194db2827d804f41000c8d07db8223.png" alt="Poster"><div class="design-info">Poster Design</div></div>
-    <div class="design-item"><img src="https://img.sanishtech.com/u/9a060c07d43ab1d4cafa9d24ee688c65.png" alt="UI"><div class="design-info">App UI Design</div></div>
-    <div class="design-item"><img src="https://img.sanishtech.com/u/901c94789e37a08f3d2312ce3211e762.png" alt="Card"><div class="design-info">Business Card Design</div></div>
+<section>
+  <h2>Portfolio</h2>
+  <div class="grid">
+    <div class="item">
+      <img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-(10).png">
+      <div class="info">YouTube Thumbnail</div>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/mg734yH7/Untitled-design-(3).png">
+      <div class="info">Logo Design</div>
+    </div>
   </div>
 </section>
 
-<section class="contact reveal" style="text-align: center;">
+<section>
   <h2>Contact Me</h2>
-  <p><i class="fa-solid fa-envelope"></i> muminalmujahid21@gmail.com</p>
-  <p><i class="fa-solid fa-phone"></i> 01841853638</p>
-  <p style="margin-top:25px;"><a href="mailto:muminalmujahid21@gmail.com" style="background:#2563eb;color:white;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:600;">Hire Me</a></p>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <button>Send Message</button>
+  </form>
 </section>
 
 <footer>
-  <p>© 2026 Mumin Al Mujahid | Digital Creator & Developer</p>
+  © 2026 Mumin Al Mujahid | Digital Creator & Developer
 </footer>
 
-<div class="float-buttons collapsed">
-  <a href="javascript:void(0)" class="main-btn" data-title="Menu"><i class="fa-solid fa-plus"></i></a>
-  <a href="https://wa.me/8801841853638" target="_blank" class="whatsapp" data-title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a href="https://www.facebook.com/profile.php?id=61555221203974&mibextid=ZbWKwL" target="_blank" class="facebook" data-title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-  <a href="https://www.youtube.com/@muminalmujahid1" target="_blank" class="youtube" data-title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-  <a href="https://www.instagram.com/muminalmujahid1?igsh=MW1ybWppc2QzaHM3Zw==" target="_blank" class="instagram" data-title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-  <a href="https://www.tiktok.com/@muminalmujahid1" target="_blank" class="tiktok" data-title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+<div class="float">
+  <a href="https://wa.me/8801841853638" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=61555221203974" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+  <a href="https://www.youtube.com/@muminalmujahid1" class="youtube"><i class="fa-brands fa-youtube"></i></a>
 </div>
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 <script>
-  // Typing Matrix Header Script Logic
-  const typingText = "Graphic Designer | Digital Creator | Developer";
-  let i = 0;
-  function typeWriter() {
-    if (i < typingText.length) {
-      document.getElementById("typing-text").innerHTML += typingText.charAt(i);
-      i++;
-      setTimeout(typeWriter, 80);
-    }
+const text="Creative Graphic Designer & Web Developer";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,80);
   }
-
-  // Unified window onload to prevent initialization overrides
-  window.addEventListener('load', () => {
-    typeWriter();
-    reveal(); // Execute initial visibility scanning check 
-  });
-
-  // Structural Window Scroll Position Reveal Check Animation Metrics
-  function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 150;
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("active");
-      }
-    }
-  }
-  window.addEventListener("scroll", reveal);
-
-  // Settings Panel Menu Interface Toggle Trigger Execution
-  function toggleSettings() {
-    document.getElementById("settingsMenu").classList.toggle("active");
-  }
-
-  // Refactored Clean Dark Mode Persistence Operations Engine Logic
-  function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    
-    if(body.classList.contains('dark-mode')) {
-      localStorage.setItem('darkMode', 'enabled');
-    } else {
-      localStorage.setItem('darkMode', 'disabled');
-    }
-  }
-
-  // Read state setup cache checking initialization
-  if(localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark-mode');
-  }
-
-  // Global Outside Context Window Modal Dropdown Target Click Hider Handler
-  window.addEventListener('click', function(e){
-    if (!document.querySelector('.settings-wrapper').contains(e.target)){
-      document.getElementById("settingsMenu").classList.remove("active");
-    }
-  });
-
-  // Floating Multi-Action Application Navigation Toggle Click Controller Logic
-  const floatBox = document.querySelector('.float-buttons');
-  const mainBtn = document.querySelector('.main-btn');
-  const floatLinks = floatBox.querySelectorAll('a:not(.main-btn)');
-
-  mainBtn.addEventListener('click', () => {
-    floatBox.classList.toggle('collapsed');
-    mainBtn.querySelector('i').classList.toggle('fa-plus');
-    mainBtn.querySelector('i').classList.toggle('fa-xmark');
-    
-    floatLinks.forEach((link, index) => {
-      setTimeout(() => { 
-        link.classList.toggle('active'); 
-      }, index * 60);
-    });
-  });
+}
+type();
 </script>
 
 </body>
