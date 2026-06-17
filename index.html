@@ -1,249 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mumin Al Mujahid | Portfolio</title>
 
-  <title>Mumin Al Mujahid | Graphic Designer & Web Developer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- SEO -->
-  <meta name="description" content="Professional Graphic Designer, Video Editor and Web Developer from Bangladesh. Helping brands grow digitally.">
-  <meta name="keywords" content="Graphic Designer, Web Developer, Video Editor, Bangladesh, Freelancer">
-  <meta name="author" content="Mumin Al Mujahid">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Poppins;
+  background:#f4f6fb;
+  color:#222;
+  transition:.3s;
+}
+body.dark{background:#111;color:#eee}
 
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+header{
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(135deg,#0f172a,#2563eb);
+  color:#fff;
+}
+.profile{
+  width:140px;height:140px;border-radius:50%;
+  border:4px solid rgba(255,255,255,.3);
+  margin-bottom:15px;
+}
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Poppins',sans-serif;
-      background:#f3f5f9;
-      color:#333;
-      transition:.3s;
-    }
-    body.dark{background:#121212;color:#eee}
+section{
+  max-width:1000px;
+  margin:50px auto;
+  background:#fff;
+  padding:40px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+body.dark section{background:#1e1e1e}
 
-    section{
-      max-width:1100px;
-      margin:60px auto;
-      background:#fff;
-      padding:50px;
-      border-radius:22px;
-      box-shadow:0 10px 35px rgba(0,0,0,.08);
-    }
-    body.dark section{background:#1e1e1e}
+h2{text-align:center;margin-bottom:20px;color:#2563eb}
 
-    h2{text-align:center;color:#2563eb;margin-bottom:30px}
+/* SETTINGS */
+.top{
+  position:fixed;
+  top:15px;
+  right:15px;
+  display:flex;
+  gap:10px;
+  z-index:999;
+}
 
-    /* HEADER */
-    header{
-      background:linear-gradient(135deg,#0f172a,#2563eb);
-      color:#fff;
-      text-align:center;
-      padding:90px 20px;
-    }
-    .profile{
-      width:150px;height:150px;
-      border-radius:50%;
-      border:5px solid rgba(255,255,255,.3);
-      margin-bottom:20px;
-      animation:pulse 2s infinite;
-    }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}
-      70%{box-shadow:0 0 0 20px rgba(255,255,255,0)}
-      100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
-    }
+.btn{
+  background:#2563eb;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:25px;
+  cursor:pointer;
+  border:none;
+}
 
-    #typing::after{content:"|";animation:blink .7s infinite}
-    @keyframes blink{50%{opacity:0}}
+.settings{
+  position:relative;
+}
 
-    .badges span{
-      display:inline-block;
-      background:rgba(255,255,255,.15);
-      padding:8px 18px;
-      border-radius:30px;
-      margin:8px 5px;
-      font-size:13px;
-    }
+.menu{
+  position:absolute;
+  top:45px;
+  right:0;
+  background:#fff;
+  width:180px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+body.dark .menu{background:#222}
 
-    /* SKILLS */
-    .skills{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-    }
-    .skill{
-      text-align:center;
-      padding:30px;
-      border-radius:18px;
-      border:1px solid #eee;
-      transition:.3s;
-    }
-    .skill:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,.1)}
-    .skill i{font-size:40px;color:#2563eb;margin-bottom:15px}
+.menu div{
+  padding:12px;
+  cursor:pointer;
+  border-bottom:1px solid #eee;
+}
+.menu div:hover{background:#f0f0f0}
+body.dark .menu div:hover{background:#333}
 
-    /* PORTFOLIO */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-    }
-    .item{
-      border-radius:15px;
-      overflow:hidden;
-      border:1px solid #ddd;
-    }
-    .item img{width:100%;height:200px;object-fit:cover}
-    .info{text-align:center;padding:15px;font-weight:600}
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.skill{
+  text-align:center;
+  padding:25px;
+  border-radius:15px;
+  border:1px solid #ddd;
+}
 
-    /* CONTACT */
-    form{
-      max-width:600px;
-      margin:auto;
-      display:grid;
-      gap:15px;
-    }
-    input,textarea{
-      padding:14px;
-      border-radius:12px;
-      border:1px solid #ccc;
-      font-family:'Poppins';
-    }
-    button{
-      background:#2563eb;
-      color:#fff;
-      border:none;
-      padding:14px;
-      border-radius:30px;
-      font-weight:600;
-      cursor:pointer;
-    }
+/* PORTFOLIO */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+.card{
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #ddd;
+}
+.card img{width:100%;height:180px;object-fit:cover}
+.card p{text-align:center;padding:10px;font-weight:600}
 
-    footer{
-      text-align:center;
-      padding:30px;
-      background:#0b0f19;
-      color:#aaa;
-    }
-
-    /* FLOAT BUTTONS */
-    .float{
-      position:fixed;
-      bottom:25px;
-      right:25px;
-      display:flex;
-      flex-direction:column;
-      gap:15px;
-    }
-    .float a{
-      width:60px;height:60px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-size:26px;
-      text-decoration:none;
-    }
-    .whatsapp{background:#25D366}
-    .facebook{background:#1877F2}
-    .youtube{background:#FF0000}
-  </style>
+/* FLOAT */
+.float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.float a{
+  width:55px;height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+.whatsapp{background:#25D366}
+.facebook{background:#1877F2}
+.youtube{background:#FF0000}
+</style>
 </head>
 
 <body>
 
+<!-- TOP SETTINGS -->
+<div class="top">
+
+<div class="settings">
+<button class="btn" onclick="toggleMenu()">
+<i class="fa-solid fa-gear"></i>
+</button>
+
+<div class="menu" id="menu">
+
+<div onclick="toggleDark()">🌙 <span data-key="dark">Dark Mode</span></div>
+
+<div onclick="setLang('en')">🇬🇧 English</div>
+<div onclick="setLang('bn')">🇧🇩 বাংলা</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- HEADER -->
 <header>
-  <img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" class="profile">
-  <h1>Mumin Al Mujahid</h1>
-  <p id="typing"></p>
-  <div class="badges">
-    <span>Graphic Design</span>
-    <span>Video Editing</span>
-    <span>Web Development</span>
-    <span>Digital Marketing</span>
-  </div>
+<img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" class="profile">
+<h1 id="name">Mumin Al Mujahid</h1>
+<p id="tagline"></p>
 </header>
 
+<!-- ABOUT -->
 <section>
-  <h2>About Me</h2>
-  <p style="text-align:center">
-    I’m <strong>Mumin Al Mujahid</strong>, a creative digital professional from Bangladesh.
-    I help individuals and businesses build their online presence through
-    <strong>branding, video content, and modern web solutions</strong>.
-  </p>
+<h2 data-key="about">About Me</h2>
+<p id="aboutText" style="text-align:center">
+I am a creative digital professional from Bangladesh.
+</p>
 </section>
 
+<!-- SKILLS -->
 <section>
-  <h2>My Skills</h2>
-  <div class="skills">
-    <div class="skill">
-      <i class="fa-solid fa-pen-nib"></i>
-      <h3>Graphic Design</h3>
-      <p>Photoshop, Thumbnails, Branding</p>
-    </div>
-    <div class="skill">
-      <i class="fa-solid fa-scissors"></i>
-      <h3>Video Editing</h3>
-      <p>YouTube & Social Media</p>
-    </div>
-    <div class="skill">
-      <i class="fa-solid fa-globe"></i>
-      <h3>Web Development</h3>
-      <p>HTML, CSS, JavaScript</p>
-    </div>
-  </div>
+<h2 data-key="skills">My Skills</h2>
+<div class="skills">
+<div class="skill">Graphic Design</div>
+<div class="skill">Video Editing</div>
+<div class="skill">Web Development</div>
+</div>
 </section>
 
+<!-- PORTFOLIO -->
 <section>
-  <h2>Portfolio</h2>
-  <div class="grid">
-    <div class="item">
-      <img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-(10).png">
-      <div class="info">YouTube Thumbnail</div>
-    </div>
-    <div class="item">
-      <img src="https://i.postimg.cc/mg734yH7/Untitled-design-(3).png">
-      <div class="info">Logo Design</div>
-    </div>
-  </div>
+<h2 data-key="work">My Work</h2>
+<div class="grid">
+<div class="card">
+<img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-10.png">
+<p>YouTube Thumbnail</p>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/mg734yH7/Untitled-design-3.png">
+<p>Logo Design</p>
+</div>
+</div>
 </section>
 
+<!-- CONTACT -->
 <section>
-  <h2>Contact Me</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea rows="5" placeholder="Your Message"></textarea>
-    <button>Send Message</button>
-  </form>
+<h2 data-key="contact">Contact</h2>
+<p style="text-align:center">muminalmujahid21@gmail.com</p>
+<p style="text-align:center">01841853638</p>
 </section>
 
-<footer>
-  © 2026 Mumin Al Mujahid | Digital Creator & Developer
-</footer>
-
+<!-- FLOAT BUTTONS -->
 <div class="float">
-  <a href="https://wa.me/8801841853638" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a href="https://www.facebook.com/profile.php?id=61555221203974" class="facebook"><i class="fa-brands fa-facebook"></i></a>
-  <a href="https://www.youtube.com/@muminalmujahid1" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+<a href="#" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+<a href="#" class="youtube"><i class="fa-brands fa-youtube"></i></a>
 </div>
 
 <script>
-const text="Creative Graphic Designer & Web Developer";
+
+/* DARK MODE */
+function toggleDark(){
+document.body.classList.toggle("dark");
+localStorage.setItem("dark", document.body.classList.contains("dark"));
+}
+if(localStorage.getItem("dark")==="true"){
+document.body.classList.add("dark");
+}
+
+/* MENU */
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
+document.addEventListener("click",(e)=>{
+if(!e.target.closest(".settings")) {
+document.getElementById("menu").classList.remove("show");
+}
+});
+
+/* TYPE EFFECT */
+const text="Creative Designer | Developer | Editor";
 let i=0;
 function type(){
-  if(i<text.length){
-    document.getElementById("typing").innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(type,80);
-  }
+if(i<text.length){
+document.getElementById("tagline").innerHTML+=text[i];
+i++;
+setTimeout(type,70);
+}
 }
 type();
+
+/* LANGUAGE SYSTEM */
+const lang={
+en:{
+about:"About Me",
+skills:"My Skills",
+work:"My Work",
+contact:"Contact",
+dark:"Dark Mode"
+},
+bn:{
+about:"আমার সম্পর্কে",
+skills:"আমার দক্ষতা",
+work:"আমার কাজ",
+contact:"যোগাযোগ",
+dark:"ডার্ক মোড"
+}
+};
+
+let current="en";
+
+function setLang(l){
+current=l;
+document.querySelectorAll("[data-key]").forEach(el=>{
+el.innerText=lang[l][el.dataset.key];
+});
+localStorage.setItem("lang",l);
+}
+
+if(localStorage.getItem("lang")){
+setLang(localStorage.getItem("lang"));
+}
+
 </script>
 
 </body>
