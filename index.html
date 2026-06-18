@@ -1,265 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mumin Al Mujahid | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mumin Al Mujahid | Web Developer, Graphic Designer & Digital Marketer</title>
 
-<!-- Google Search Console Verification -->
-<meta name="google-site-verification" content="OuyxvgQ2g279YYz9v4QRrTdpvCcr6EDrU5EYn1Ju10I" />
+  <meta name="description" content="Mumin Al Mujahid is a Bangladeshi Web Developer, Graphic Designer, and Digital Marketing Specialist focused on modern websites, visual branding, and result-driven digital solutions.">
+  <meta name="keywords" content="Mumin Al Mujahid, Web Developer Bangladesh, Graphic Designer Bangladesh, Digital Marketing Specialist, Website Design, Branding">
+  <meta name="author" content="Mumin Al Mujahid">
+  <meta name="google-site-verification" content="OuyxvgQ2g279YYz9v4QRrTdpvCcr6EDrU5EYn1Ju10I" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:Poppins;
-  background:#f4f6fb;
-  color:#222;
-  transition:.3s;
-}
-body.dark{background:#111;color:#eee}
+  <style>
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f3f5f9;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+    body.dark-mode { background: #121212; color: #eee; }
+    
+    header {
+      background: linear-gradient(135deg, #0f172a, #2563eb, #3b82f6);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    header.dark-mode { background: linear-gradient(135deg, #000, #1e293b); }
 
-/* HEADER */
-header{
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(135deg,#0f172a,#2563eb);
-  color:#fff;
-}
-.profile{
-  width:140px;height:140px;border-radius:50%;
-  border:4px solid rgba(255,255,255,.3);
-  margin-bottom:15px;
-}
+    /* Profile Image with Pulse Effect */
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 20px;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+    .profile-img:hover { transform: scale(1.05); border-color: #fff; }
 
-/* SECTIONS */
-section{
-  max-width:1000px;
-  margin:50px auto;
-  background:#fff;
-  padding:40px;
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-body.dark section{background:#1e1e1e}
-h2{text-align:center;margin-bottom:20px;color:#2563eb}
+    #typing-text::after { content: '|'; animation: blink 0.7s infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
 
-/* SETTINGS */
-.top{
-  position:fixed;
-  top:15px;
-  right:15px;
-  z-index:999;
-}
-.btn{
-  background:#2563eb;
-  color:#fff;
-  padding:10px 15px;
-  border-radius:25px;
-  cursor:pointer;
-  border:none;
-}
-.settings{position:relative}
-.menu{
-  position:absolute;
-  top:45px;
-  right:0;
-  background:#fff;
-  width:180px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-  display:none;
-  flex-direction:column;
-}
-.menu.show{display:flex}
-body.dark .menu{background:#222}
-.menu div{
-  padding:12px;
-  cursor:pointer;
-  border-bottom:1px solid #eee;
-}
-.menu div:hover{background:#f0f0f0}
-body.dark .menu div:hover{background:#333}
+    .badges span { 
+      display: inline-block; 
+      background: rgba(255,255,255,0.1); 
+      backdrop-filter: blur(10px);
+      padding: 8px 18px; 
+      border-radius: 30px; 
+      margin: 10px 6px 0; 
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
 
-/* SKILLS */
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.skill{
-  text-align:center;
-  padding:25px;
-  border-radius:15px;
-  border:1px solid #ddd;
-}
+    /* Scroll Reveal Styling */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* PORTFOLIO */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
-}
-.card{
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid #ddd;
-}
-.card img{width:100%;height:180px;object-fit:cover}
-.card p{text-align:center;padding:10px;font-weight:600}
+    section {
+      max-width: 1000px;
+      margin: 45px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    section.dark-mode { background: #1e1e1e; color: #eee; }
 
-/* FLOAT BUTTONS */
-.float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.float a{
-  width:55px;height:55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-}
-.whatsapp{background:#25D366}
-.facebook{background:#1877F2}
-.youtube{background:#FF0000}
-</style>
+    h2 { color: #2563eb; margin-bottom: 25px; font-size: 28px; font-weight: 700; text-align: center;}
+    h2.dark-mode { color: #60a5fa; }
+
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .skill {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      transition: all 0.4s ease;
+      color: #333;
+      border: 1px solid #f0f0f0;
+      text-align: center;
+    }
+    .skill:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #2563eb; }
+    .skill.dark-mode { background: #2a2a2a; color: #eee; border-color: #333; }
+    .skill i { font-size: 40px; margin-bottom: 15px; color: #2563eb; }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .design-item {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+    .design-item.dark-mode { background: #2a2a2a; border-color: #444; }
+    .design-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .design-info { padding: 15px; text-align: center; font-weight: 600; }
+
+    footer { background: #0b0f19; color: #aaa; text-align: center; padding: 30px; margin-top: 60px; }
+
+    /* Top Controls & Settings Dropdown */
+    .top-controls {
+      position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; align-items: center;
+    }
+    .top-btn { 
+      background: #2563eb; color: #fff; padding: 10px 20px; border-radius: 30px; 
+      cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
+      border: none; display: flex; align-items: center; gap: 8px;
+    }
+    .settings-wrapper { position: relative; }
+    .settings-dropdown {
+      position: absolute; top: 50px; right: 0; background: white; 
+      min-width: 160px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: none; padding: 10px; flex-direction: column; gap: 5px;
+    }
+    .settings-dropdown.active { display: flex; }
+    .settings-dropdown.dark-mode { background: #1e1e1e; color: #eee; border: 1px solid #333; }
+
+    .dropdown-item {
+      padding: 10px; border-radius: 10px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: 0.2s; font-size: 14px; color: inherit;
+    }
+    .dropdown-item:hover { background: #f0f0f0; }
+    .settings-dropdown.dark-mode .dropdown-item:hover { background: #333; }
+
+    /* Google Translate Hide Branding */
+    .goog-te-gadget span { display: none !important; }
+    .goog-te-gadget { color: transparent !important; }
+    #google_translate_element select {
+      padding: 8px; border-radius: 20px; border: 1px solid #2563eb; outline: none; font-family: 'Poppins'; cursor: pointer;
+    }
+
+    /* Floating Buttons */
+    .float-buttons { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column-reverse; gap: 15px; z-index: 999; }
+    .float-buttons a {
+      background: #0d6efd; color: white; width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 26px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2); text-decoration: none; position: relative;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .float-buttons a.whatsapp { background: #25D366; }
+    .float-buttons a.facebook { background: #1877F2; }
+    .float-buttons a.youtube { background: #FF0000; }
+    .float-buttons a.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .float-buttons a.tiktok { background: #000000; }
+
+    .float-buttons a::after {
+      content: attr(data-title); position: absolute; right: 75px; background: rgba(0,0,0,0.8);
+      color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 13px;
+      opacity: 0; pointer-events: none; white-space: nowrap; transform: translateX(10px); transition: 0.3s;
+    }
+    .float-buttons a:hover::after { opacity: 1; transform: translateX(0); }
+    .float-buttons a:hover { transform: scale(1.15); }
+    .float-buttons.collapsed a:not(.main-btn) { opacity: 0; transform: translateY(20px) scale(0); pointer-events: none; }
+    .float-buttons a:not(.main-btn).active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+
+    /* Get in Touch Button Animation */
+    .cta-btn {
+      display: inline-block;
+      animation: softPulse 2.5s infinite;
+    }
+    @keyframes softPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 18px rgba(37, 99, 235, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+      }
+    }
+    .cta-btn:hover {
+      animation: none;
+      transform: scale(1.08);
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- SETTINGS -->
-<div class="top">
-  <div class="settings">
-    <button class="btn" onclick="toggleMenu()">
-      <i class="fa-solid fa-gear"></i>
+<div class="top-controls">
+  <div id="google_translate_element"></div>
+  
+  <div class="settings-wrapper">
+    <button class="top-btn" onclick="toggleSettings()">
+      <i class="fa-solid fa-gear"></i> Settings
     </button>
-
-    <div class="menu" id="menu">
-      <div onclick="toggleDark()">🌙 <span data-key="dark">Dark Mode</span></div>
-      <div onclick="setLang('en')">🇬🇧 English</div>
-      <div onclick="setLang('bn')">🇧🇩 বাংলা</div>
+    <div class="settings-dropdown" id="settingsMenu">
+      <div class="dropdown-item" onclick="toggleDarkMode()">
+        Dark Mode <i class="fa-solid fa-moon"></i>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
-<header>
-  <img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" class="profile">
+<header id="top">
+  <img 
+    src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" 
+    alt="Mumin Al Mujahid" 
+    class="profile-img"
+  >
   <h1>Mumin Al Mujahid</h1>
-  <p id="tagline"></p>
+  <p id="typing-text"></p>
+
+  <div class="badges">
+    <span>Web Development</span>
+    <span>Graphic Design</span>
+    <span>Digital Marketing</span>
+    <span>Branding & SEO</span>
+  </div>
 </header>
 
-<section>
-  <h2 data-key="about">About Me</h2>
-  <p data-key="aboutText" style="text-align:center">
-    I am a creative digital professional from Bangladesh.
+<section class="about reveal">
+  <h2>About Me</h2>
+  <p>
+    <strong>Mumin Al Mujahid</strong> is a Bangladeshi <strong>Web Developer</strong>, 
+    <strong>Graphic Designer</strong>, and <strong>Digital Marketing Specialist</strong>.
+    He specializes in building modern, responsive websites, creating strong visual 
+    brand identities, and delivering result-driven digital solutions.
   </p>
 </section>
 
-<section>
-  <h2 data-key="skills">My Skills</h2>
+<section class="skills-sec reveal">
+  <h2>My Specialities</h2>
   <div class="skills">
-    <div class="skill">Graphic Design</div>
-    <div class="skill">Video Editing</div>
-    <div class="skill">Web Development</div>
-  </div>
-</section>
-
-<section>
-  <h2 data-key="work">My Work</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-10.png">
-      <p>YouTube Thumbnail</p>
+    <div class="skill">
+      <i class="fa-solid fa-pen-nib"></i>
+      <h3>Graphic Design</h3>
+      <p>Logo design, social media graphics, thumbnails & branding materials</p>
     </div>
-    <div class="card">
-      <img src="https://i.postimg.cc/mg734yH7/Untitled-design-3.png">
-      <p>Logo Design</p>
+    <div class="skill">
+      <i class="fa-solid fa-bullhorn"></i>
+      <h3>Digital Marketing</h3>
+      <p>Social media marketing, content strategy & audience growth</p>
+    </div>
+    <div class="skill">
+      <i class="fa-solid fa-globe"></i>
+      <h3>Web Development</h3>
+      <p>Responsive, fast & modern websites using latest technologies</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2 data-key="contact">Contact</h2>
-  <p style="text-align:center">muminalmujahid21@gmail.com</p>
-  <p style="text-align:center">01841853638</p>
+<section class="portfolio reveal">
+  <h2>My Works</h2>
+  <div class="design-grid">
+    <div class="design-item">
+      <img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-(10).png" alt="Social Media Thumbnail Design">
+      <div class="design-info">Social Media Thumbnail Design</div>
+    </div>
+    <div class="design-item">
+      <img src="https://i.postimg.cc/mg734yH7/Untitled-design-(3).png" alt="Professional Logo Design">
+      <div class="design-info">Professional Logo Design</div>
+    </div>
+    <div class="design-item">
+      <img src="https://img.sanishtech.com/u/19194db2827d804f41000c8d07db8223.png" alt="Creative Poster Design">
+      <div class="design-info">Creative Poster Design</div>
+    </div>
+    <div class="design-item">
+      <img src="https://img.sanishtech.com/u/9a060c07d43ab1d4cafa9d24ee688c65.png" alt="Mobile App UI Design">
+      <div class="design-info">Mobile App UI Design</div>
+    </div>
+    <div class="design-item">
+      <img src="https://img.sanishtech.com/u/901c94789e37a08f3d2312ce3211e762.png" alt="Business Card Design">
+      <div class="design-info">Business Card Design</div>
+    </div>
+  </div>
 </section>
 
-<div class="float">
-  <a href="#" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
-  <a href="#" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+<section class="contact reveal" style="text-align: center;">
+  <h2>Contact Me</h2>
+  <p><i class="fa-solid fa-envelope"></i> muminalmujahid21@gmail.com</p>
+  <p><i class="fa-solid fa-phone"></i> +880 1841 853638</p>
+  <p style="margin-top:25px;">
+    <a href="mailto:muminalmujahid21@gmail.com" class="cta-btn"
+       style="background:#2563eb;color:white;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:600;">
+       Get in Touch
+    </a>
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Mumin Al Mujahid | Digital Creator & Developer</p>
+</footer>
+
+<div class="float-buttons collapsed">
+  <a href="javascript:void(0)" class="main-btn" data-title="Menu"><i class="fa-solid fa-plus"></i></a>
+  <a href="https://wa.me/8801841853638" target="_blank" class="whatsapp" data-title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=61555221203974&mibextid=ZbWKwL" target="_blank" class="facebook" data-title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+  <a href="https://www.youtube.com/@muminalmujahid1" target="_blank" class="youtube" data-title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  <a href="https://www.instagram.com/muminalmujahid1?igsh=MW1ybWppc2QzaHM3Zw==" target="_blank" class="instagram" data-title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@muminalmujahid1" target="_blank" class="tiktok" data-title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 
+<!-- Google Translate Scripts -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <script>
-/* MENU */
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("show");
-}
-document.addEventListener("click",e=>{
-  if(!e.target.closest(".settings")){
-    document.getElementById("menu").classList.remove("show");
+  // Typing Effect (Fixed placeholder clearing issue)
+  const typingText = "Web Developer | Graphic Designer | Digital Marketer";
+  let i = 0;
+  const targetElement = document.getElementById("typing-text");
+  targetElement.innerHTML = ""; 
+
+  function typeWriter() {
+    if (i < typingText.length) {
+      targetElement.innerHTML += typingText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 80);
+    }
   }
-});
+  window.addEventListener('DOMContentLoaded', typeWriter);
 
-/* DARK MODE */
-function toggleDark(){
-  document.body.classList.toggle("dark");
-  localStorage.setItem("dark",document.body.classList.contains("dark"));
-}
-if(localStorage.getItem("dark")==="true"){
-  document.body.classList.add("dark");
-}
-
-/* TYPE EFFECT */
-const text="Creative Designer | Developer | Editor";
-let i=0;
-function type(){
-  if(i<text.length){
-    document.getElementById("tagline").innerHTML+=text[i++];
-    setTimeout(type,70);
+  // Scroll Reveal Logic
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      }
+    }
   }
-}
-type();
+  window.addEventListener("scroll", reveal);
+  reveal();
 
-/* LANGUAGE SYSTEM */
-const lang={
-  en:{
-    about:"About Me",
-    aboutText:"I am a creative digital professional from Bangladesh.",
-    skills:"My Skills",
-    work:"My Work",
-    contact:"Contact",
-    dark:"Dark Mode"
-  },
-  bn:{
-    about:"আমার সম্পর্কে",
-    aboutText:"আমি বাংলাদেশের একজন সৃজনশীল ডিজিটাল পেশাজীবী।",
-    skills:"আমার দক্ষতা",
-    work:"আমার কাজ",
-    contact:"যোগাযোগ",
-    dark:"ডার্ক মোড"
+  // Settings Dropdown
+  function toggleSettings() {
+    document.getElementById("settingsMenu").classList.toggle("active");
   }
-};
 
-function setLang(l){
-  document.querySelectorAll("[data-key]").forEach(el=>{
-    el.innerText=lang[l][el.dataset.key];
+  // Dark Mode Logic
+  function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    document.querySelectorAll(
+      'section, .skill, h2, header, .design-item, .settings-dropdown'
+    ).forEach(el => el.classList.toggle('dark-mode'));
+
+    if(body.classList.contains('dark-mode'))
+      localStorage.setItem('darkMode','enabled');
+    else
+      localStorage.setItem('darkMode','disabled');
+  }
+
+  if(localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    document.querySelectorAll(
+      'section, .skill, h2, header, .design-item, .settings-dropdown'
+    ).forEach(el => el.classList.add('dark-mode'));
+  }
+
+  window.addEventListener('click', function(e){
+    if (!document.querySelector('.settings-wrapper').contains(e.target)){
+      document.getElementById("settingsMenu").classList.remove("active");
+    }
   });
-  localStorage.setItem("lang",l);
-}
-if(localStorage.getItem("lang")){
-  setLang(localStorage.getItem("lang"));
-}
+
+  // Floating Action Button
+  const floatBox = document.querySelector('.float-buttons');
+  const mainBtn = document.querySelector('.main-btn');
+  const floatLinks = floatBox.querySelectorAll('a:not(.main-btn)');
+
+  mainBtn.addEventListener('click', () => {
+    floatBox.classList.toggle('collapsed');
+    mainBtn.querySelector('i').classList.toggle('fa-plus');
+    mainBtn.querySelector('i').classList.toggle('fa-xmark');
+    floatLinks.forEach((link, index) => {
+      setTimeout(() => {
+        link.classList.toggle('active');
+      }, index * 60);
+    });
+  });
 </script>
 
 </body>
