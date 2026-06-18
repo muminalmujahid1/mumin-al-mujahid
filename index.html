@@ -10,7 +10,6 @@
   <meta name="author" content="Mumin Al Mujahid">
   <meta name="google-site-verification" content="OuyxvgQ2g279YYz9v4QRrTdpvCcr6EDrU5EYn1Ju10I" />
 
-  <!-- Preloading External Assets -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,12 +163,14 @@
       height: 220px;
       overflow: hidden;
     }
+    /* FIX: স্লাইডার ট্র্যাক উইডথ ফিক্স */
     .slider-track {
       display: flex;
       width: 100%;
       height: 100%;
       transition: transform 0.4s ease-in-out;
     }
+    /* FIX: ইমেজ উইডথ যাতে চেপে না যায় */
     .slider-track img { 
       width: 100%; 
       height: 100%; 
@@ -335,7 +336,6 @@
       color: #eee !important; 
       border-color: #555 !important;
     }
-    /* গুগলের টপ ব্যানার বা বার হাইড করার জন্য */
     .goog-te-banner-frame, .goog-te-balloon-frame, #goog-gt-tt { display: none !important; }
     body { top: 0 !important; }
 
@@ -441,7 +441,6 @@
     <h2>My Works</h2>
     <div class="design-grid">
       
-      <!-- Project 1 -->
       <div class="design-item" data-project="0">
         <div class="slider-container">
           <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
@@ -454,7 +453,6 @@
         <div class="design-info">Social Media Thumbnail Design</div>
       </div>
 
-      <!-- Project 2 -->
       <div class="design-item" data-project="1">
         <div class="slider-container">
           <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
@@ -468,7 +466,6 @@
         <div class="design-info">Professional Logo Design</div>
       </div>
 
-      <!-- Project 3 -->
       <div class="design-item" data-project="2">
         <div class="slider-container">
           <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
@@ -481,7 +478,6 @@
         <div class="design-info">Creative Poster Design</div>
       </div>
 
-      <!-- Project 4 -->
       <div class="design-item" data-project="3">
         <div class="slider-container">
           <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
@@ -494,7 +490,6 @@
         <div class="design-info">Mobile App UI Design</div>
       </div>
 
-      <!-- Project 5 -->
       <div class="design-item" data-project="4">
         <div class="slider-container">
           <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
@@ -518,7 +513,7 @@
     <p style="margin-top:25px;">
       <a href="mailto:muminalmujahid21@gmail.com" class="cta-btn" style="background:#2563eb;color:white;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:600;">
          Get in Touch
-      </a>
+       </a>
     </p>
   </section>
 </main>
@@ -527,7 +522,6 @@
   <p>&copy; 2026 Mumin Al Mujahid | Digital Creator & Developer</p>
 </footer>
 
-<!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
   <span class="lightbox-close" aria-label="Close Modal">&times;</span>
   <button class="lightbox-btn prev" onclick="navigateLightbox(-1)" aria-label="Go to previous portfolio image"><i class="fa-solid fa-chevron-left"></i></button>
@@ -535,7 +529,6 @@
   <img class="lightbox-content" id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Enlarged Portfolio Detail View">
 </div>
 
-<!-- Floating Navigation Interface Layout -->
 <div class="float-buttons collapsed">
   <a href="javascript:void(0)" class="main-btn" data-title="Menu" aria-label="Toggle Contact Links"><i class="fa-solid fa-plus"></i></a>
   <a href="https://wa.me/8801841853638" target="_blank" rel="noopener" class="whatsapp" data-title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
@@ -550,7 +543,6 @@
     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
   }
 </script>
-<!-- ১. লিঙ্ক ফিক্স: শুরুতে https: যুক্ত করা হয়েছে এবং async defer বাদ দেওয়া হয়েছে -->
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
@@ -571,6 +563,7 @@
   // Intersection Scroll Tracker
   function reveal() {
     const reveals = document.querySelectorAll(".reveal");
+    reveves = document.querySelectorAll(".reveal");
     reveals.forEach(el => {
       const windowHeight = window.innerHeight;
       const elementTop = el.getBoundingClientRect().top;
@@ -655,19 +648,23 @@
         dotsContainer.appendChild(dot);
       });
     } else {
-      item.querySelectorAll('.slider-btn').forEach(btn => btn.style.display = 'none');
+      const btns = item.querySelectorAll('.slider-btn');
+      if(btns) btns.forEach(btn => btn.style.display = 'none');
     }
   });
 
+  // FIX: ডট না থাকলে যাতে এরর না আসে তার কন্ডিশন যোগ করা হয়েছে
   function updateSliderDOM(pIndex) {
     const item = document.querySelectorAll('.design-item')[pIndex];
     const track = item.querySelector('.slider-track');
     track.style.transform = `translateX(${-currentSlideIndices[pIndex] * 100}%)`;
     
     const dots = item.querySelectorAll('.dot');
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentSlideIndices[pIndex]);
-    });
+    if(dots.length > 0) {
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlideIndices[pIndex]);
+      });
+    }
   }
 
   function moveSlide(event, direction) {
