@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mumin Al Mujahid </title>
+  <title>Mumin Al Mujahid | Web Developer & Graphic Designer</title>
 
   <meta name="description" content="Mumin Al Mujahid is a Bangladeshi Web Developer, Graphic Designer, and Digital Marketing Specialist focused on modern websites, visual branding, and result-driven digital solutions.">
   <meta name="keywords" content="Mumin Al Mujahid, Web Developer Bangladesh, Graphic Designer Bangladesh, Digital Marketing Specialist, Website Design, Branding">
   <meta name="author" content="Mumin Al Mujahid">
   <meta name="google-site-verification" content="OuyxvgQ2g279YYz9v4QRrTdpvCcr6EDrU5EYn1Ju10I" />
+
+  <!-- Preloading External Assets -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -38,7 +43,6 @@
     }
     header.dark-mode { background: linear-gradient(135deg, #000, #1e293b); }
 
-    /* Profile Image with Pulse Effect */
     .profile-img {
       width: 150px;
       height: 150px;
@@ -71,7 +75,6 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* Scroll Reveal Styling */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -97,7 +100,6 @@
     h2 { color: #2563eb; margin-bottom: 25px; font-size: 28px; font-weight: 700; text-align: center;}
     h2.dark-mode { color: #60a5fa; }
 
-    /* ---- Specialties Section Layout (Mobile Friendly - 1 Line 3 Items) ---- */
     .skills { 
       display: grid; 
       grid-template-columns: repeat(3, 1fr); 
@@ -118,7 +120,6 @@
     .skill h3 { font-size: 13px; margin: 5px 0; font-weight: 600; }
     .skill p { font-size: 11px; margin: 0; line-height: 1.3; }
 
-    /* Responsive adjustments for Tablets & Desktops */
     @media (min-width: 768px) {
       .skills { gap: 25px; }
       .skill { padding: 30px; }
@@ -127,7 +128,6 @@
       .skill p { font-size: 14px; }
     }
 
-    /* ---- Improved My Works Section Styling ---- */
     .design-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -139,7 +139,6 @@
       overflow: hidden;
       background: #fff;
       border: 1px solid #eef2f6;
-      cursor: pointer;
       position: relative;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
       transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.3s ease;
@@ -158,16 +157,76 @@
       box-shadow: 0 20px 35px rgba(96, 165, 250, 0.25);
       border-color: #60a5fa;
     }
-    .design-item img { 
+    
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    .slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease-in-out;
+    }
+    .slider-track img { 
       width: 100%; 
-      height: 220px; 
+      height: 100%; 
       object-fit: cover; 
-      display: block; 
+      flex-shrink: 0;
+      cursor: pointer;
       transition: transform 0.5s ease;
     }
-    .design-item:hover img {
-      transform: scale(1.08);
+    .design-item:hover .slider-track img { transform: scale(1.04); }
+    
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15, 23, 42, 0.6);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      z-index: 5;
+      opacity: 0;
+      transition: background 0.2s, opacity 0.3s;
     }
+    .design-item:hover .slider-btn { opacity: 1; }
+    .slider-btn:hover { background: #2563eb; }
+    .slider-btn.prev { left: 10px; }
+    .slider-btn.next { right: 10px; }
+    .slider-btn * { pointer-events: none; }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 5;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active {
+      background: #2563eb;
+      transform: scale(1.2);
+    }
+
     .design-info { 
       padding: 18px; 
       text-align: center; 
@@ -176,19 +235,10 @@
       border-top: 1px solid #f5f7fa;
       transition: background 0.3s, color 0.3s;
     }
-    .design-item.dark-mode .design-info {
-      border-top-color: #383838;
-    }
-    .design-item:hover .design-info {
-      background: #f8fafc;
-      color: #2563eb;
-    }
-    .design-item.dark-mode:hover .design-info {
-      background: #333;
-      color: #60a5fa;
-    }
+    .design-item.dark-mode .design-info { border-top-color: #383838; }
+    .design-item:hover .design-info { background: #f8fafc; color: #2563eb; }
+    .design-item.dark-mode:hover .design-info { background: #333; color: #60a5fa; }
 
-    /* ---- Lightbox Modal Dynamic Popup ---- */
     .lightbox {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(11, 15, 25, 0.9);
@@ -208,13 +258,23 @@
     .lightbox-close {
       position: absolute; top: 25px; right: 35px; color: #fff;
       font-size: 40px; font-weight: 300; cursor: pointer; transition: 0.3s;
-      line-height: 1;
+      line-height: 1; z-index: 2100;
     }
     .lightbox-close:hover { color: #60a5fa; transform: rotate(90deg); }
+    
+    .lightbox-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.1); color: white; border: none;
+      width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; transition: 0.3s; z-index: 2050;
+    }
+    .lightbox-btn:hover { background: #2563eb; }
+    .lightbox-btn.prev { left: 30px; }
+    .lightbox-btn.next { right: 30px; }
 
     footer { background: #0b0f19; color: #aaa; text-align: center; padding: 30px; margin-top: 60px; }
 
-    /* Top Controls & Settings Dropdown */
     .top-controls {
       position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; align-items: center;
     }
@@ -224,9 +284,10 @@
       border: none; display: flex; align-items: center; gap: 8px;
     }
     .settings-wrapper { position: relative; }
+    
     .settings-dropdown {
       position: absolute; top: 50px; right: 0; background: white; 
-      min-width: 200px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      min-width: 220px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       display: none; padding: 15px; flex-direction: column; gap: 12px;
     }
     .settings-dropdown.active { display: flex; }
@@ -240,7 +301,6 @@
     .dropdown-item:hover { background: #f0f0f0; }
     .settings-dropdown.dark-mode .dropdown-item:hover { background: #333; }
 
-    /* Google Translate Styling inside Dropdown */
     .translate-box {
       border-top: 1px solid #eee;
       padding-top: 10px;
@@ -252,17 +312,33 @@
     .translate-label { font-size: 12px; color: #777; font-weight: 600; }
     .settings-dropdown.dark-mode .translate-label { color: #aaa; }
 
-    .goog-te-gadget span { display: none !important; }
-    .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
-    #google_translate_element select {
-      width: 100%; padding: 6px 10px; border-radius: 10px; border: 1px solid #2563eb; 
-      outline: none; font-family: 'Poppins'; cursor: pointer; background: #fff; color: #333; font-size: 13px;
+    /* --- গুগল ট্রান্সলেট ফিক্সড CSS --- */
+    .goog-te-gadget { 
+      color: transparent !important; 
+      font-size: 0 !important; 
     }
-    body.dark-mode #google_translate_element select {
-      background: #2a2a2a; color: #eee; border-color: #555;
+    .goog-te-gadget .goog-te-combo {
+      display: block !important;
+      width: 100% !important; 
+      padding: 6px 10px !important; 
+      border-radius: 10px !important; 
+      border: 1px solid #2563eb !important; 
+      outline: none !important; 
+      font-family: 'Poppins', sans-serif !important; 
+      cursor: pointer !important; 
+      background: #fff !important; 
+      color: #333 !important; 
+      font-size: 13px !important;
     }
+    body.dark-mode .goog-te-gadget .goog-te-combo {
+      background: #2a2a2a !important; 
+      color: #eee !important; 
+      border-color: #555 !important;
+    }
+    /* গুগলের টপ ব্যানার বা বার হাইড করার জন্য */
+    .goog-te-banner-frame, .goog-te-balloon-frame, #goog-gt-tt { display: none !important; }
+    body { top: 0 !important; }
 
-    /* Floating Buttons */
     .float-buttons { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column-reverse; gap: 15px; z-index: 999; }
     .float-buttons a {
       background: #0d6efd; color: white; width: 60px; height: 60px; border-radius: 50%;
@@ -286,60 +362,41 @@
     .float-buttons.collapsed a:not(.main-btn) { opacity: 0; transform: translateY(20px) scale(0); pointer-events: none; }
     .float-buttons a:not(.main-btn).active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
 
-    /* Get in Touch Button Animation */
     .cta-btn {
       display: inline-block;
       animation: softPulse 2.5s infinite;
     }
     @keyframes softPulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
-      }
-      70% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 18px rgba(37, 99, 235, 0);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-      }
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 18px rgba(37, 99, 235, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
     }
-    .cta-btn:hover {
-      animation: none;
-      transform: scale(1.08);
-    }
+    .cta-btn:hover { animation: none; transform: scale(1.08); }
   </style>
 </head>
 <body>
 
-<div class="top-controls">
+<nav class="top-controls" aria-label="Quick Settings">
   <div class="settings-wrapper">
-    <button class="top-btn" onclick="toggleSettings()">
+    <button class="top-btn" onclick="toggleSettings()" aria-haspopup="true" aria-expanded="false" id="settingsBtn">
       <i class="fa-solid fa-gear"></i> Settings
     </button>
-    <div class="settings-dropdown" id="settingsMenu">
-      <div class="dropdown-item" onclick="toggleDarkMode()">
+    <div class="settings-dropdown" id="settingsMenu" role="menu" aria-labelledby="settingsBtn">
+      <div class="dropdown-item" onclick="toggleDarkMode()" role="menuitem">
         Dark Mode <i class="fa-solid fa-moon"></i>
       </div>
-      
       <div class="translate-box">
         <div class="translate-label"><i class="fa-solid fa-language"></i> Language:</div>
         <div id="google_translate_element"></div>
       </div>
     </div>
   </div>
-</div>
+</nav>
 
 <header id="top">
-  <img 
-    src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" 
-    alt="Mumin Al Mujahid" 
-    class="profile-img"
-  >
+  <img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" alt="Mumin Al Mujahid Portrait Profile" class="profile-img">
   <h1>Mumin Al Mujahid</h1>
   <p id="typing-text"></p>
-
   <div class="badges">
     <span>Web Development</span>
     <span>Graphic Design</span>
@@ -348,92 +405,144 @@
   </div>
 </header>
 
-<section class="about reveal">
-  <h2>About Me</h2>
-  <p>
-    <strong>Mumin Al Mujahid</strong> is a Bangladeshi <strong>Web Developer</strong>, 
-    <strong>Graphic Designer</strong>, and <strong>Digital Marketing Specialist</strong>.
-    He specializes in building modern, responsive websites, creating strong visual 
-    brand identities, and delivering result-driven digital solutions.
-  </p>
-</section>
+<main>
+  <section class="about reveal">
+    <h2>About Me</h2>
+    <p>
+      <strong>Mumin Al Mujahid</strong> is a Bangladeshi <strong>Web Developer</strong>, 
+      <strong>Graphic Designer</strong>, and <strong>Digital Marketing Specialist</strong>.
+      He specializes in building modern, responsive websites, creating strong visual 
+      brand identities, and delivering result-driven digital solutions.
+    </p>
+  </section>
 
-<section class="skills-sec reveal">
-  <h2>My Specialities</h2>
-  <div class="skills">
-    <div class="skill">
-      <i class="fa-solid fa-pen-nib"></i>
-      <h3>Graphic Design</h3>
-      <p>Logo, graphics & branding</p>
+  <section class="skills-sec reveal">
+    <h2>My Specialities</h2>
+    <div class="skills">
+      <div class="skill">
+        <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+        <h3>Graphic Design</h3>
+        <p>Logo, graphics & branding</p>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+        <h3>Digital Marketing</h3>
+        <p>Social media & growth</p>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <h3>Web Dev</h3>
+        <p>Responsive websites</p>
+      </div>
     </div>
-    <div class="skill">
-      <i class="fa-solid fa-bullhorn"></i>
-      <h3>Digital Marketing</h3>
-      <p>Social media & audience growth</p>
-    </div>
-    <div class="skill">
-      <i class="fa-solid fa-globe"></i>
-      <h3>Web Dev</h3>
-      <p>Responsive & fast websites</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="portfolio reveal">
-  <h2>My Works</h2>
-  <div class="design-grid">
-    <div class="design-item">
-      <img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-(10).png" alt="Social Media Thumbnail Design">
-      <div class="design-info">Social Media Thumbnail Design</div>
-    </div>
-    <div class="design-item">
-      <img src="https://i.postimg.cc/mg734yH7/Untitled-design-(3).png" alt="Professional Logo Design">
-      <div class="design-info">Professional Logo Design</div>
-    </div>
-    <div class="design-item">
-      <img src="https://i.postimg.cc/K86r6FtC/Add-a-heading.png" alt="Creative Poster Design">
-      <div class="design-info">Creative Poster Design</div>
-    </div>
-    <div class="design-item">
-      <img src="https://i.postimg.cc/vT4sxWD8/Light-Brown-Simple-Cute-Illustrative-Online-Shop-Dashboard-Mobile-App-UI-Prototype.png">
-      <div class="design-info">Mobile App UI Design</div>
-    </div>
-    <div class="design-item">
-      <img src="https://i.postimg.cc/856CqQB3/Untitled-design-(8).png" alt="Business Card Design">
-      <div class="design-info">Business Card Design</div>
-    </div>
-  </div>
-</section>
+  <section class="portfolio reveal">
+    <h2>My Works</h2>
+    <div class="design-grid">
+      
+      <!-- Project 1 -->
+      <div class="design-item" data-project="0">
+        <div class="slider-container">
+          <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-btn next" onclick="moveSlide(event, 1)" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="slider-track">
+            <img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-(10).png" alt="Social Media Thumbnail Layout Preview 1">
+          </div>
+          <div class="slider-dots"></div>
+        </div>
+        <div class="design-info">Social Media Thumbnail Design</div>
+      </div>
 
-<section class="contact reveal" style="text-align: center;">
-  <h2>Contact Me</h2>
-  <p><i class="fa-solid fa-envelope"></i> muminalmujahid21@gmail.com</p>
-  <p><i class="fa-solid fa-phone"></i> +880 1841 853638</p>
-  <p style="margin-top:25px;">
-    <a href="mailto:muminalmujahid21@gmail.com" class="cta-btn"
-       style="background:#2563eb;color:white;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:600;">
-       Get in Touch
-    </a>
-  </p>
-</section>
+      <!-- Project 2 -->
+      <div class="design-item" data-project="1">
+        <div class="slider-container">
+          <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-btn next" onclick="moveSlide(event, 1)" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="slider-track">
+            <img src="https://i.postimg.cc/mg734yH7/Untitled-design-(3).png" alt="Professional Logo Branding Vector 1">
+            <img src="https://i.postimg.cc/HkKxkkL3/DAD-(1).png" alt="Professional Logo Branding Vector 2">
+          </div>
+          <div class="slider-dots"></div>
+        </div>
+        <div class="design-info">Professional Logo Design</div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="design-item" data-project="2">
+        <div class="slider-container">
+          <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-btn next" onclick="moveSlide(event, 1)" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="slider-track">
+            <img src="https://i.postimg.cc/K86r6FtC/Add-a-heading.png" alt="Creative Event Poster Typography Artwork">
+          </div>
+          <div class="slider-dots"></div>
+        </div>
+        <div class="design-info">Creative Poster Design</div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="design-item" data-project="3">
+        <div class="slider-container">
+          <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-btn next" onclick="moveSlide(event, 1)" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="slider-track">
+            <img src="https://i.postimg.cc/vT4sxWD8/Light-Brown-Simple-Cute-Illustrative-Online-Shop-Dashboard-Mobile-App-UI-Prototype.png" alt="Mobile App UI Interface Wireframe Design">
+          </div>
+          <div class="slider-dots"></div>
+        </div>
+        <div class="design-info">Mobile App UI Design</div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="design-item" data-project="4">
+        <div class="slider-container">
+          <button class="slider-btn prev" onclick="moveSlide(event, -1)" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-btn next" onclick="moveSlide(event, 1)" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="slider-track">
+            <img src="https://i.postimg.cc/wBdVZgpH/MR-JEANS-(2).png" alt="Corporate Minimalist Business Card Design Print Layout">
+            <img src="https://i.postimg.cc/3wSZRpGd/MR-JEANS-2.png" alt="Social Media Thumbnail Layout Preview 2">
+          </div>
+          <div class="slider-dots"></div>
+        </div>
+        <div class="design-info">Business Card Design</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact reveal" style="text-align: center;">
+    <h2>Contact Me</h2>
+    <p><i class="fa-solid fa-envelope"></i> muminalmujahid21@gmail.com</p>
+    <p><i class="fa-solid fa-phone"></i> +880 1841 853638</p>
+    <p style="margin-top:25px;">
+      <a href="mailto:muminalmujahid21@gmail.com" class="cta-btn" style="background:#2563eb;color:white;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:600;">
+         Get in Touch
+      </a>
+    </p>
+  </section>
+</main>
 
 <footer>
-  <p>© 2026 Mumin Al Mujahid | Digital Creator & Developer</p>
+  <p>&copy; 2026 Mumin Al Mujahid | Digital Creator & Developer</p>
 </footer>
 
-<!-- Lightbox Markup for Image Zoom Feature -->
-<div id="lightbox" class="lightbox">
-  <span class="lightbox-close">&times;</span>
-  <img class="lightbox-content" id="lightbox-img" src="" alt="Enlarged Portfolio Work">
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+  <span class="lightbox-close" aria-label="Close Modal">&times;</span>
+  <button class="lightbox-btn prev" onclick="navigateLightbox(-1)" aria-label="Go to previous portfolio image"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="lightbox-btn next" onclick="navigateLightbox(1)" aria-label="Go to next portfolio image"><i class="fa-solid fa-chevron-right"></i></button>
+  <img class="lightbox-content" id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Enlarged Portfolio Detail View">
 </div>
 
+<!-- Floating Navigation Interface Layout -->
 <div class="float-buttons collapsed">
-  <a href="javascript:void(0)" class="main-btn" data-title="Menu"><i class="fa-solid fa-plus"></i></a>
-  <a href="https://wa.me/8801841853638" target="_blank" class="whatsapp" data-title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a href="https://www.facebook.com/profile.php?id=61555221203974&mibextid=ZbWKwL" target="_blank" class="facebook" data-title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-  <a href="https://www.youtube.com/@muminalmujahid1" target="_blank" class="youtube" data-title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-  <a href="https://www.instagram.com/muminalmujahid1?igsh=MW1ybWppc2QzaHM3Zw==" target="_blank" class="instagram" data-title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-  <a href="https://www.tiktok.com/@muminalmujahid1" target="_blank" class="tiktok" data-title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="javascript:void(0)" class="main-btn" data-title="Menu" aria-label="Toggle Contact Links"><i class="fa-solid fa-plus"></i></a>
+  <a href="https://wa.me/8801841853638" target="_blank" rel="noopener" class="whatsapp" data-title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=61555221203974" target="_blank" rel="noopener" class="facebook" data-title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+  <a href="https://www.youtube.com/@muminalmujahid1" target="_blank" rel="noopener" class="youtube" data-title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  <a href="https://www.instagram.com/muminalmujahid1" target="_blank" rel="noopener" class="instagram" data-title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@muminalmujahid1" target="_blank" rel="noopener" class="tiktok" data-title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 
 <script type="text/javascript">
@@ -441,80 +550,81 @@
     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
   }
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- ১. লিঙ্ক ফিক্স: শুরুতে https: যুক্ত করা হয়েছে এবং async defer বাদ দেওয়া হয়েছে -->
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-  // Typing Effect
+  // Typing Effect Loop
   const typingText = "Web Developer | Graphic Designer | Digital Marketer";
   let i = 0;
   const targetElement = document.getElementById("typing-text");
-  targetElement.innerHTML = ""; 
 
   function typeWriter() {
     if (i < typingText.length) {
-      targetElement.innerHTML += typingText.charAt(i);
+      targetElement.textContent += typingText.charAt(i);
       i++;
       setTimeout(typeWriter, 80);
     }
   }
   window.addEventListener('DOMContentLoaded', typeWriter);
 
-  // Scroll Reveal Logic
+  // Intersection Scroll Tracker
   function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 150;
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("active");
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 150) {
+        el.classList.add("active");
       }
-    }
+    });
   }
   window.addEventListener("scroll", reveal);
   reveal();
 
-  // Settings Dropdown
+  // Settings Menu Layout Trigger
   function toggleSettings() {
-    document.getElementById("settingsMenu").classList.toggle("active");
+    const menu = document.getElementById("settingsMenu");
+    const btn = document.getElementById("settingsBtn");
+    const isExpanded = menu.classList.toggle("active");
+    btn.setAttribute("aria-expanded", isExpanded);
   }
 
-  // Dark Mode Logic
+  // Dark Mode Engine Fix
   function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    document.querySelectorAll(
-      'section, .skill, h2, header, .design-item, .settings-dropdown'
-    ).forEach(el => el.classList.toggle('dark-mode'));
-
-    if(body.classList.contains('dark-mode'))
-      localStorage.setItem('darkMode','enabled');
-    else
-      localStorage.setItem('darkMode','disabled');
+    const isDark = document.body.classList.toggle('dark-mode');
+    document.querySelectorAll('section, .skill, h2, header, .design-item, .settings-dropdown')
+            .forEach(el => el.classList.toggle('dark-mode', isDark));
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
   }
 
   if(localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
-    document.querySelectorAll(
-      'section, .skill, h2, header, .design-item, .settings-dropdown'
-    ).forEach(el => el.classList.add('dark-mode'));
+    document.querySelectorAll('section, .skill, h2, header, .design-item, .settings-dropdown')
+            .forEach(el => el.classList.add('dark-mode'));
   }
 
   window.addEventListener('click', function(e){
-    if (!document.querySelector('.settings-wrapper').contains(e.target)){
-      document.getElementById("settingsMenu").classList.remove("active");
+    if (!e.target.closest('.settings-wrapper')){
+      const menu = document.getElementById("settingsMenu");
+      if(menu.classList.contains("active")) {
+        menu.classList.remove("active");
+        document.getElementById("settingsBtn").setAttribute("aria-expanded", "false");
+      }
     }
   });
 
-  // Floating Action Button
+  // Floating Action Expansion Core
   const floatBox = document.querySelector('.float-buttons');
   const mainBtn = document.querySelector('.main-btn');
   const floatLinks = floatBox.querySelectorAll('a:not(.main-btn)');
 
   mainBtn.addEventListener('click', () => {
     floatBox.classList.toggle('collapsed');
-    mainBtn.querySelector('i').classList.toggle('fa-plus');
-    mainBtn.querySelector('i').classList.toggle('fa-xmark');
+    const icon = mainBtn.querySelector('i');
+    icon.classList.toggle('fa-plus');
+    icon.classList.toggle('fa-xmark');
+    
     floatLinks.forEach((link, index) => {
       setTimeout(() => {
         link.classList.toggle('active');
@@ -522,27 +632,103 @@
     });
   });
 
-  // ---- Lightbox Functionality ----
+  // Slider Array Initializer Matrix 
+  const projectImages = [];
+  const currentSlideIndices = [];
+
+  document.querySelectorAll('.design-item').forEach((item, pIndex) => {
+    const images = item.querySelectorAll('.slider-track img');
+    const imagesSrcArray = Array.from(images).map(img => img.getAttribute('src'));
+    projectImages.push(imagesSrcArray);
+    currentSlideIndices.push(0);
+
+    const dotsContainer = item.querySelector('.slider-dots');
+    if(images.length > 1) {
+      images.forEach((_, imgIndex) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if(imgIndex === 0) dot.classList.add('active');
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          jumpToSlide(pIndex, imgIndex);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    } else {
+      item.querySelectorAll('.slider-btn').forEach(btn => btn.style.display = 'none');
+    }
+  });
+
+  function updateSliderDOM(pIndex) {
+    const item = document.querySelectorAll('.design-item')[pIndex];
+    const track = item.querySelector('.slider-track');
+    track.style.transform = `translateX(${-currentSlideIndices[pIndex] * 100}%)`;
+    
+    const dots = item.querySelectorAll('.dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentSlideIndices[pIndex]);
+    });
+  }
+
+  function moveSlide(event, direction) {
+    event.stopPropagation();
+    const btn = event.currentTarget; 
+    const item = btn.closest('.design-item');
+    const pIndex = parseInt(item.getAttribute('data-project'));
+    const totalImages = projectImages[pIndex].length;
+
+    currentSlideIndices[pIndex] = (currentSlideIndices[pIndex] + direction + totalImages) % totalImages;
+    updateSliderDOM(pIndex);
+  }
+
+  function jumpToSlide(pIndex, imgIndex) {
+    currentSlideIndices[pIndex] = imgIndex;
+    updateSliderDOM(pIndex);
+  }
+
+  // Lightbox Modal Logic
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.querySelector('.lightbox-close');
+  let activeProjectIndex = 0;
+  let activeImageIndex = 0;
 
-  document.querySelectorAll('.design-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const imgSrc = item.querySelector('img').getAttribute('src');
-      lightboxImg.setAttribute('src', imgSrc);
+  document.querySelectorAll('.design-item').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      if(e.target.closest('.slider-btn') || e.target.closest('.slider-dots')) return;
+      
+      activeProjectIndex = parseInt(item.getAttribute('data-project'));
+      activeImageIndex = currentSlideIndices[activeProjectIndex];
+      showLightboxImage();
       lightbox.classList.add('active');
+      lightbox.setAttribute("aria-hidden", "false");
     });
   });
 
-  lightboxClose.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
+  function showLightboxImage() {
+    lightboxImg.setAttribute('src', projectImages[activeProjectIndex][activeImageIndex]);
+    const controls = lightbox.querySelectorAll('.lightbox-btn');
+    const displayStyle = projectImages[activeProjectIndex].length <= 1 ? 'none' : 'flex';
+    controls.forEach(btn => btn.style.display = displayStyle);
+  }
 
+  function navigateLightbox(direction) {
+    const totalImgs = projectImages[activeProjectIndex].length;
+    activeImageIndex = (activeImageIndex + direction + totalImgs) % totalImgs;
+    showLightboxImage();
+    
+    currentSlideIndices[activeProjectIndex] = activeImageIndex;
+    updateSliderDOM(activeProjectIndex);
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-    }
+    if (e.target === lightbox) closeLightbox();
   });
 </script>
 
