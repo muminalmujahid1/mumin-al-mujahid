@@ -1,92 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mumin Al Mujahid | Portfolio</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
+
 body{
   font-family:Poppins;
-  background:#f4f6fb;
-  color:#222;
+  background:#f3f5f9;
+  color:#333;
   transition:.3s;
+  overflow-x:hidden;
 }
-body.dark{background:#111;color:#eee}
+
+body.dark-mode{
+  background:#121212;
+  color:#eee;
+}
 
 header{
+  background:linear-gradient(135deg,#0f172a,#2563eb,#3b82f6);
+  color:#fff;
   text-align:center;
   padding:80px 20px;
-  background:linear-gradient(135deg,#0f172a,#2563eb);
-  color:#fff;
 }
-.profile{
-  width:140px;height:140px;border-radius:50%;
-  border:4px solid rgba(255,255,255,.3);
-  margin-bottom:15px;
+
+body.dark-mode header{
+  background:linear-gradient(135deg,#000,#1e293b);
+}
+
+.profile-img{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  border:5px solid rgba(255,255,255,.2);
+  object-fit:cover;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}
+  70%{box-shadow:0 0 0 20px rgba(255,255,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
 }
 
 section{
   max-width:1000px;
-  margin:50px auto;
+  margin:45px auto;
   background:#fff;
   padding:40px;
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,.05);
 }
-body.dark section{background:#1e1e1e}
 
-h2{text-align:center;margin-bottom:20px;color:#2563eb}
+body.dark-mode section{
+  background:#1e1e1e;
+}
 
-/* SETTINGS */
-.top{
+h2{text-align:center;color:#2563eb;margin-bottom:25px}
+
+/* TOP CONTROLS */
+.top-controls{
   position:fixed;
-  top:15px;
-  right:15px;
+  top:20px;
+  right:20px;
   display:flex;
   gap:10px;
-  z-index:999;
+  z-index:9999;
 }
 
-.btn{
+.top-btn{
   background:#2563eb;
   color:#fff;
-  padding:10px 15px;
+  padding:10px 18px;
   border-radius:25px;
-  cursor:pointer;
   border:none;
+  cursor:pointer;
 }
 
-.settings{
-  position:relative;
-}
+/* SETTINGS */
+.settings-wrapper{position:relative}
 
-.menu{
+.settings-dropdown{
   position:absolute;
   top:45px;
   right:0;
   background:#fff;
-  width:180px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
+  min-width:180px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
   display:none;
-  flex-direction:column;
   overflow:hidden;
 }
-body.dark .menu{background:#222}
 
-.menu div{
+body.dark-mode .settings-dropdown{
+  background:#1e1e1e;
+}
+
+.settings-dropdown.active{
+  display:block;
+}
+
+.dropdown-item{
   padding:12px;
   cursor:pointer;
-  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
 }
-.menu div:hover{background:#f0f0f0}
-body.dark .menu div:hover{background:#333}
+
+.dropdown-item:hover{
+  background:#f0f0f0;
+}
+
+body.dark-mode .dropdown-item:hover{
+  background:#333;
+}
 
 /* SKILLS */
 .skills{
@@ -94,87 +129,91 @@ body.dark .menu div:hover{background:#333}
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
+
 .skill{
   text-align:center;
   padding:25px;
   border-radius:15px;
   border:1px solid #ddd;
+  transition:.3s;
 }
 
-/* PORTFOLIO */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+.skill:hover{
+  transform:translateY(-10px);
+}
+
+/* FLOAT BUTTONS */
+.float-buttons{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  display:flex;
+  flex-direction:column-reverse;
   gap:15px;
 }
-.card{
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid #ddd;
-}
-.card img{width:100%;height:180px;object-fit:cover}
-.card p{text-align:center;padding:10px;font-weight:600}
 
-/* FLOAT */
-.float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.float a{
-  width:55px;height:55px;
+.float-buttons a{
+  width:60px;
+  height:60px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   color:#fff;
+  font-size:24px;
+  text-decoration:none;
 }
+
 .whatsapp{background:#25D366}
 .facebook{background:#1877F2}
 .youtube{background:#FF0000}
+.instagram{background:radial-gradient(circle,#fdf497,#fd5949,#d6249f,#285AEB)}
+.tiktok{background:#000}
 </style>
-
-<meta name="google-site-verification" content="OuyxvgQ2g279YYz9v4QRrTdpvCcr6EDrU5EYn1Ju10I" />
-
 </head>
 
 <body>
 
-<div class="top">
+<!-- TOP -->
+<div class="top-controls">
 
-<div class="settings">
-<button class="btn" onclick="toggleMenu()">
-<i class="fa-solid fa-gear"></i>
+<div class="settings-wrapper">
+
+<button class="top-btn" onclick="toggleSettings()">
+<i class="fa fa-gear"></i>
 </button>
 
-<div class="menu" id="menu">
+<div class="settings-dropdown" id="settingsMenu">
 
-<div onclick="toggleDark()">🌙 <span data-key="dark">Dark Mode</span></div>
-
-<div onclick="setLang('en')">🇬🇧 English</div>
-<div onclick="setLang('bn')">🇧🇩 বাংলা</div>
-
-</div>
+<div class="dropdown-item" onclick="toggleDarkMode()">
+Dark Mode <i class="fa fa-moon"></i>
 </div>
 
+<div class="dropdown-item" onclick="setLang('en')">English</div>
+<div class="dropdown-item" onclick="setLang('bn')">বাংলা</div>
+
 </div>
 
+</div>
+
+</div>
+
+<!-- HEADER -->
 <header>
-<img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" class="profile">
+<img src="https://i.postimg.cc/1RYfjVf4/Professional-podcast-setup-with-You-Tube-branding.png" class="profile-img">
 <h1 id="name">Mumin Al Mujahid</h1>
-<p id="tagline"></p>
+<p id="typing-text"></p>
 </header>
 
+<!-- ABOUT -->
 <section>
 <h2 data-key="about">About Me</h2>
 <p id="aboutText" style="text-align:center">
-I am a creative digital professional from Bangladesh.
+Creative Digital Professional from Bangladesh.
 </p>
 </section>
 
+<!-- SKILLS -->
 <section>
 <h2 data-key="skills">My Skills</h2>
 <div class="skills">
@@ -184,87 +223,65 @@ I am a creative digital professional from Bangladesh.
 </div>
 </section>
 
-<section>
-<h2 data-key="work">My Work</h2>
-<div class="grid">
-<div class="card">
-<img src="https://i.postimg.cc/rsLcBcXN/Untitled-design-10.png">
-<p>YouTube Thumbnail</p>
-</div>
-<div class="card">
-<img src="https://i.postimg.cc/mg734yH7/Untitled-design-3.png">
-<p>Logo Design</p>
-</div>
-</div>
-</section>
-
-<section>
-<h2 data-key="contact">Contact</h2>
-<p style="text-align:center">muminalmujahid21@gmail.com</p>
-<p style="text-align:center">01841853638</p>
-</section>
-
-<div class="float">
-<a href="#" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-<a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
-<a href="#" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+<!-- FLOAT -->
+<div class="float-buttons">
+<a href="javascript:void(0)" onclick="toggleFloat()"><i class="fa fa-plus"></i></a>
+<a href="https://wa.me/8801841853638" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://facebook.com" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+<a href="https://youtube.com" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+<a href="https://instagram.com" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://tiktok.com" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 
 <script>
 
-/* DARK MODE */
-function toggleDark(){
-document.body.classList.toggle("dark");
-localStorage.setItem("dark", document.body.classList.contains("dark"));
-}
-if(localStorage.getItem("dark")==="true"){
-document.body.classList.add("dark");
+/* SETTINGS */
+function toggleSettings(){
+document.getElementById("settingsMenu").classList.toggle("active");
 }
 
-/* MENU */
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+/* DARK MODE */
+function toggleDarkMode(){
+document.body.classList.toggle("dark-mode");
+localStorage.setItem("dark", document.body.classList.contains("dark-mode"));
 }
-document.addEventListener("click",(e)=>{
-if(!e.target.closest(".settings")) {
-document.getElementById("menu").classList.remove("show");
+
+if(localStorage.getItem("dark")==="true"){
+document.body.classList.add("dark-mode");
+}
+
+/* CLICK OUTSIDE CLOSE */
+window.addEventListener("click",function(e){
+if(!e.target.closest(".settings-wrapper")){
+document.getElementById("settingsMenu").classList.remove("active");
 }
 });
 
-/* TYPE EFFECT */
-const text="Creative Designer | Developer | Editor";
+/* TYPE */
+const text="Graphic Designer | Developer | Video Editor";
 let i=0;
 function type(){
 if(i<text.length){
-document.getElementById("tagline").innerHTML+=text[i];
+document.getElementById("typing-text").innerHTML+=text[i];
 i++;
-setTimeout(type,70);
+setTimeout(type,80);
 }
 }
 type();
 
-/* LANGUAGE SYSTEM */
+/* LANGUAGE (SAFE UPGRADE ONLY) */
 const lang={
 en:{
 about:"About Me",
-skills:"My Skills",
-work:"My Work",
-contact:"Contact",
-dark:"Dark Mode"
+skills:"My Skills"
 },
 bn:{
 about:"আমার সম্পর্কে",
-skills:"আমার দক্ষতা",
-work:"আমার কাজ",
-contact:"যোগাযোগ",
-dark:"ডার্ক মোড"
+skills:"আমার দক্ষতা"
 }
 };
 
-let current="en";
-
 function setLang(l){
-current=l;
 document.querySelectorAll("[data-key]").forEach(el=>{
 el.innerText=lang[l][el.dataset.key];
 });
