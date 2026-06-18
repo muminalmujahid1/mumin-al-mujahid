@@ -143,25 +143,40 @@
     .settings-wrapper { position: relative; }
     .settings-dropdown {
       position: absolute; top: 50px; right: 0; background: white; 
-      min-width: 160px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      display: none; padding: 10px; flex-direction: column; gap: 5px;
+      min-width: 200px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: none; padding: 15px; flex-direction: column; gap: 12px;
     }
     .settings-dropdown.active { display: flex; }
     .settings-dropdown.dark-mode { background: #1e1e1e; color: #eee; border: 1px solid #333; }
 
     .dropdown-item {
-      padding: 10px; border-radius: 10px; cursor: pointer;
+      padding: 8px 5px; border-radius: 10px; cursor: pointer;
       display: flex; align-items: center; justify-content: space-between;
       transition: 0.2s; font-size: 14px; color: inherit;
     }
     .dropdown-item:hover { background: #f0f0f0; }
     .settings-dropdown.dark-mode .dropdown-item:hover { background: #333; }
 
-    /* Google Translate Hide Branding */
+    /* Google Translate Styling inside Dropdown */
+    .translate-box {
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .settings-dropdown.dark-mode .translate-box { border-top-color: #333; }
+    .translate-label { font-size: 12px; color: #777; font-weight: 600; }
+    .settings-dropdown.dark-mode .translate-label { color: #aaa; }
+
     .goog-te-gadget span { display: none !important; }
-    .goog-te-gadget { color: transparent !important; }
+    .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
     #google_translate_element select {
-      padding: 8px; border-radius: 20px; border: 1px solid #2563eb; outline: none; font-family: 'Poppins'; cursor: pointer;
+      width: 100%; padding: 6px 10px; border-radius: 10px; border: 1px solid #2563eb; 
+      outline: none; font-family: 'Poppins'; cursor: pointer; background: #fff; color: #333; font-size: 13px;
+    }
+    body.dark-mode #google_translate_element select {
+      background: #2a2a2a; color: #eee; border-color: #555;
     }
 
     /* Floating Buttons */
@@ -216,8 +231,6 @@
 <body>
 
 <div class="top-controls">
-  <div id="google_translate_element"></div>
-  
   <div class="settings-wrapper">
     <button class="top-btn" onclick="toggleSettings()">
       <i class="fa-solid fa-gear"></i> Settings
@@ -225,6 +238,11 @@
     <div class="settings-dropdown" id="settingsMenu">
       <div class="dropdown-item" onclick="toggleDarkMode()">
         Dark Mode <i class="fa-solid fa-moon"></i>
+      </div>
+      
+      <div class="translate-box">
+        <div class="translate-label"><i class="fa-solid fa-language"></i> Language:</div>
+        <div id="google_translate_element"></div>
       </div>
     </div>
   </div>
@@ -329,7 +347,6 @@
   <a href="https://www.tiktok.com/@muminalmujahid1" target="_blank" class="tiktok" data-title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 
-<!-- Google Translate Scripts -->
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -338,7 +355,7 @@
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-  // Typing Effect (Fixed placeholder clearing issue)
+  // Typing Effect
   const typingText = "Web Developer | Graphic Designer | Digital Marketer";
   let i = 0;
   const targetElement = document.getElementById("typing-text");
