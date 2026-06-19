@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://muminalmujahidit.xyz/sitemap.xml
